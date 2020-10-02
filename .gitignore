@@ -1,0 +1,8 @@
+# Java and IDE relate files and folders
+.idea/
+target/
+*.class
+*.tmp
+bin/
+tmp/
+*.iml
