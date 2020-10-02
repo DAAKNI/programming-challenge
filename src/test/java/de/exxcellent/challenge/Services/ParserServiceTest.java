@@ -2,9 +2,11 @@ package de.exxcellent.challenge.Services;
 
 import de.exxcellent.challenge.Models.FileData;
 import de.exxcellent.challenge.Models.FileWrapper;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -48,5 +50,11 @@ public class ParserServiceTest {
 
         assertEquals(testData, fileData.getContent());
 
+    }
+
+    @AfterAll
+    public static void deleteCSV() {
+        File file = new File("test.csv");
+        file.delete();
     }
 }
