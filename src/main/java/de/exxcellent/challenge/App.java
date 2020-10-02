@@ -28,18 +28,22 @@ public final class App {
         final String footballData = "src/main/resources/de/exxcellent/challenge/football.csv";
 
         RepositoryService repositoryService = new RepositoryService();
-        FileWrapper unparsedData = repositoryService.get(weatherData);
-
         ParserService parserService = new ParserService();
-        FileData parsedData = parserService.parse(unparsedData);
-
         ProcesorService procesorService = new ProcesorService();
 
+        FileWrapper unparsedWeatherData = repositoryService.get(weatherData);
+        FileData parsedWeatherData = parserService.parse(unparsedWeatherData);
 
-        String dayWithSmallestTempSpread = procesorService.calculateMinSpread(parsedData, "MxT", "MnT");   // Your day analysis function call …
+
+
+
+        String dayWithSmallestTempSpread = procesorService.calculateMinSpread(parsedWeatherData, "MxT", "MnT");
         System.out.printf("Day with smallest temperature spread : %s%n", dayWithSmallestTempSpread);
 
-        String teamWithSmallestGoalSpread = "A good team"; // Your goal analysis function call …
+
+        FileWrapper unparsedFootballData = repositoryService.get(footballData);
+        FileData parsedFootballData = parserService.parse(unparsedFootballData);
+        String teamWithSmallestGoalSpread = procesorService.calculateMinSpread(parsedFootballData, "Goals", "Goals Allowed");
         System.out.printf("Team with smallest goal spread       : %s%n", teamWithSmallestGoalSpread);
 
     }
