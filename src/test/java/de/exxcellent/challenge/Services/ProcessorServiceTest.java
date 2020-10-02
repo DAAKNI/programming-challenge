@@ -13,7 +13,7 @@ public class ProcessorServiceTest {
         RepositoryService repositoryService = new RepositoryService();
 
         ParserService parserService = new ParserService();
-        ProccesorService proccesorService = new ProcessorService();
+        ProcesorService procesorService = new ProcesorService();
         FileWrapper rawData = new FileWrapper();
         try {
             rawData = repositoryService.get("src/main/resources/de/exxcellent/challenge/weather.csv");
@@ -21,7 +21,7 @@ public class ProcessorServiceTest {
             e.printStackTrace();
         }
         FileData fileData = parserService.parse(rawData);
-        String result = proccesorService.calculateMinSpread(fileData);
+        String result = procesorService.calculateMinSpread(fileData, "MxT", "MnT");
 
         assertEquals("14", result);
     }

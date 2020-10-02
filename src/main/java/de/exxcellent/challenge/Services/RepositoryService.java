@@ -26,7 +26,7 @@ public class RepositoryService {
         // Extract filename and ending
         if (resource.contains("/")) {
             fileName = resource.substring(resource.lastIndexOf("/"));
-            fileExtension = fileName.substring(fileName.indexOf("."));
+            fileExtension = fileName.substring(fileName.indexOf(".")+1);
         } else {
             fileName = resource;
             fileExtension = fileName.substring(fileName.indexOf(".")+1);
