@@ -1,5 +1,6 @@
 package de.exxcellent.challenge.Services;
 
+import de.exxcellent.challenge.Config.FileType;
 import de.exxcellent.challenge.Models.FileWrapper;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -15,6 +16,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RepositoryServiceTest {
+
 
     @BeforeAll
     public static void setupCSV() {
@@ -37,6 +39,30 @@ public class RepositoryServiceTest {
         }
         List<String> testData = new ArrayList<>(Arrays.asList("A,B,C", "B,1,2","C,2,3"));
         assertEquals(testData, rawData.getFileData());
+    }
+
+    @Test
+    public void testFileNameExtraction() {
+        RepositoryService repositoryService = new RepositoryService();
+        FileWrapper rawData = new FileWrapper();
+        try {
+            rawData = repositoryService.get("test.csv");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        assertEquals("test.csv", rawData.getFileName());
+    }
+
+    @Test
+    public void testFileExtensionExtraction() {
+        RepositoryService repositoryService = new RepositoryService();
+        FileWrapper rawData = new FileWrapper();
+        try {
+            rawData = repositoryService.get("test.csv");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        assertEquals(FileType.CSV, rawData.getFileType());
     }
 
     @AfterAll
