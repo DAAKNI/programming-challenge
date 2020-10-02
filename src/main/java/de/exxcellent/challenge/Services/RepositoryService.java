@@ -1,7 +1,10 @@
 package de.exxcellent.challenge.Services;
 
+import de.exxcellent.challenge.App;
 import de.exxcellent.challenge.Config.FileType;
 import de.exxcellent.challenge.Models.FileWrapper;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -10,7 +13,10 @@ import java.util.stream.Stream;
 
 public class RepositoryService {
 
+    private static final Logger logger = LogManager.getLogger(RepositoryService.class);
+
     public FileWrapper get(String resource) {
+        logger.info("Reading file.");
         String fileName;
         String fileExtension;
         File file = new File(resource);
@@ -34,6 +40,7 @@ public class RepositoryService {
             }
         } catch (IOException e) {
             e.printStackTrace();
+            logger.error("Error Reading file");
         }
 
 
