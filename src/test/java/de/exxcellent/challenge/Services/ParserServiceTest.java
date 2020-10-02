@@ -2,8 +2,10 @@ package de.exxcellent.challenge.Services;
 
 import de.exxcellent.challenge.Models.FileData;
 import de.exxcellent.challenge.Models.FileWrapper;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,6 +14,16 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ParserServiceTest {
+    @BeforeAll
+    public static void setupCSV() {
+        try (FileWriter fileWriter = new FileWriter("test.csv");){
+            String data = "A,B,C\nB,1,2\nC,2,3" ;
+            fileWriter.write(data);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     @Test
     public void testParseCSVFile(){
