@@ -3,6 +3,9 @@ package de.exxcellent.challenge.Models;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This model represents the parsed data as a 2D-List Matrix
+ */
 public class FileData {
     private List<List<String>> content = new ArrayList<>();
 

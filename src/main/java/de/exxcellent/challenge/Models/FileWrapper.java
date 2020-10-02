@@ -5,6 +5,9 @@ import de.exxcellent.challenge.Config.FileType;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Wrapper class for the file that's beeing read. Lines in a file are getting added as Strings in a list;
+ */
 public class FileWrapper {
     private String fileName;
     private FileType fileType;
