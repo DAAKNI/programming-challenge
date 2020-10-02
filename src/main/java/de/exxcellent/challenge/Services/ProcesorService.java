@@ -1,18 +1,26 @@
 package de.exxcellent.challenge.Services;
 
 import de.exxcellent.challenge.Models.FileData;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-import javax.naming.StringRefAddr;
-import java.io.File;
-import java.sql.SQLOutput;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 
 public class ProcesorService {
+
+    private static final Logger logger = LogManager.getLogger(ParserService.class);
+
+    /**
+     * Takes in the parsed data can calcualte the differnce between two columns
+     * @param fileData
+     * @param col1
+     * @param col2
+     * @return
+     */
     public String calculateMinSpread(FileData fileData, String col1, String col2) {
 
         List<String> header = fileData.getContent().get(0);
@@ -25,6 +33,7 @@ public class ProcesorService {
 
 
         int minIndex = difference.indexOf(Collections.min(difference));
+        logger.info("Calculated minimum of two columns");
         return rowNames.get(minIndex);
     }
 
@@ -56,7 +65,7 @@ public class ProcesorService {
     }
 
     /**
-     * Elementwise subtraction of to Interger Lists
+     * Elementwise subtraction of to Integer Lists
      * @param column1
      * @param column2
      * @return

@@ -1,5 +1,10 @@
 package de.exxcellent.challenge;
 
+import de.exxcellent.challenge.Models.FileData;
+import de.exxcellent.challenge.Models.FileWrapper;
+import de.exxcellent.challenge.Services.ParserService;
+import de.exxcellent.challenge.Services.ProcesorService;
+import de.exxcellent.challenge.Services.RepositoryService;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
@@ -19,10 +24,19 @@ public final class App {
 
         logger.info("Entering application.");
 
+        final String weatherData = "src/main/resources/de/exxcellent/challenge/weather.csv";
+        final String footballData = "src/main/resources/de/exxcellent/challenge/football.csv";
 
-        // Your preparation code …
+        RepositoryService repositoryService = new RepositoryService();
+        FileWrapper unparsedData = repositoryService.get(weatherData);
 
-        String dayWithSmallestTempSpread = "Someday";     // Your day analysis function call …
+        ParserService parserService = new ParserService();
+        FileData parsedData = parserService.parse(unparsedData);
+
+        ProcesorService procesorService = new ProcesorService();
+
+
+        String dayWithSmallestTempSpread = procesorService.calculateMinSpread(parsedData, "MxT", "MnT");   // Your day analysis function call …
         System.out.printf("Day with smallest temperature spread : %s%n", dayWithSmallestTempSpread);
 
         String teamWithSmallestGoalSpread = "A good team"; // Your goal analysis function call …
