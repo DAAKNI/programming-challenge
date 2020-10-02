@@ -1,5 +1,7 @@
 package de.exxcellent.challenge.Services;
 
+import de.exxcellent.challenge.Models.FileData;
+import de.exxcellent.challenge.Models.FileWrapper;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -7,7 +9,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class ParserServiceTest {
+
     @Test
     public void testParseCSVFile(){
 
@@ -16,7 +21,7 @@ public class ParserServiceTest {
         FileWrapper rawData = null;
         try {
             rawData = repositoryService.get("test.csv");
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 

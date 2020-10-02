@@ -1,8 +1,11 @@
 package de.exxcellent.challenge.Services;
 
+import de.exxcellent.challenge.Models.FileWrapper;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -26,13 +29,19 @@ public class RepositoryServiceTest {
     @Test
     public void testReadCSVFile(){
         RepositoryService repositoryService = new RepositoryService();
-        FileWrapper rawData = null;
+        FileWrapper rawData = new FileWrapper();
         try {
             rawData = repositoryService.get("test.csv");
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         List<String> testData = new ArrayList<>(Arrays.asList("A,B,C", "B,1,2","C,2,3"));
         assertEquals(testData, rawData.getFileData());
+    }
+
+    @AfterAll
+    public static void deleteCSV() {
+        File file = new File("test.csv");
+        file.delete();
     }
 }
