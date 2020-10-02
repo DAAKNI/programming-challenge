@@ -25,4 +25,22 @@ public class ProcessorServiceTest {
 
         assertEquals("14", result);
     }
+
+    @Test
+    public void GetSmallestGoalSpread() {
+
+        RepositoryService repositoryService = new RepositoryService();
+        ParserService parserService = new ParserService();
+        ProcesorService procesorService = new ProcesorService();
+        FileWrapper rawData = new FileWrapper();
+        try {
+            rawData = repositoryService.get("src/main/resources/de/exxcellent/challenge/football.csv");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        FileData fileData = parserService.parse(rawData);
+        String result = procesorService.calculateMinSpread(fileData, "Goals", "Goals Allowed");
+
+        assertEquals("Aston_Villa", result);
+    }
 }
