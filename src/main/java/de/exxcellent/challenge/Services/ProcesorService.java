@@ -73,7 +73,11 @@ public class ProcesorService {
     public List<Integer> subtractColumns(List<Integer> column1, List<Integer> column2) {
         List<Integer> result = new ArrayList<>();
         for(int i = 0; i < column1.size(); i++) {
-            result.add(column1.get(i) - column2.get(i));
+            if(column1.get(i) > column2.get(i)) {
+                result.add(column1.get(i) - column2.get(i));
+            } else {
+                result.add(column2.get(i) - column1.get(i));
+            }
         }
         return result;
 
