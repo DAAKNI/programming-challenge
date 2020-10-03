@@ -3,6 +3,7 @@ package de.exxcellent.challenge.Services;
 import de.exxcellent.challenge.App;
 import de.exxcellent.challenge.Config.FileType;
 import de.exxcellent.challenge.Models.FileWrapper;
+import de.exxcellent.challenge.exceptions.FileNotSupportedException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -15,7 +16,9 @@ public class RepositoryService {
 
     private static final Logger logger = LogManager.getLogger(RepositoryService.class);
 
-    public FileWrapper get(String resource) {
+    public FileWrapper get(String resource) throws FileNotSupportedException {
+
+
         logger.info("Reading file.");
         String fileName;
         String fileExtension;
@@ -25,11 +28,18 @@ public class RepositoryService {
 
         // Extract filename and ending
         if (resource.contains("/")) {
-            fileName = resource.substring(resource.lastIndexOf("/"));
+            fileName = resource.substring(resource.lastIndexOf("/")+1);
             fileExtension = fileName.substring(fileName.indexOf(".")+1);
         } else {
             fileName = resource;
             fileExtension = fileName.substring(fileName.indexOf(".")+1);
+        }
+
+//        if(FileType.valueOf(fileExtension.toUpperCase()))
+        try {
+            fileWrapper.setFileType(FileType.valueOf(fileExtension.toUpperCase()));
+        } catch (IllegalArgumentException e) {
+            throw new FileNotSupportedException("Filetype of " + fileName + " not supported", e);
         }
 
         // Open local resource
@@ -45,7 +55,6 @@ public class RepositoryService {
 
 
         fileWrapper.setFileData(content);
-        fileWrapper.setFileType(FileType.valueOf(fileExtension.toUpperCase()));
         fileWrapper.setFileName(fileName);
 
 

@@ -1,5 +1,6 @@
 package de.exxcellent.challenge;
 
+import de.exxcellent.challenge.exceptions.FileNotSupportedException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -24,7 +25,7 @@ class AppTest {
     }
 
     @Test
-    void runFootball() {
+    void runFootball() throws FileNotSupportedException {
         App.main("--football", "football.csv");
     }
 

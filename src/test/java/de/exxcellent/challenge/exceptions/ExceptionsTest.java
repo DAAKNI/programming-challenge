@@ -25,9 +25,9 @@ public class ExceptionsTest {
                 });
 
 
-        String expectedMessage = "File not supported";
+        String expectedMessage = "Filetype of file.xyz not supported";
         String actualMessage = exception.getMessage();
-        assertEquals("expectedMessage", exception.getMessage());
+        assertEquals(expectedMessage, exception.getMessage());
     }
 
     @Test

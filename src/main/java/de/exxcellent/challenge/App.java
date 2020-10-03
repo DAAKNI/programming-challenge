@@ -5,6 +5,7 @@ import de.exxcellent.challenge.Models.FileWrapper;
 import de.exxcellent.challenge.Services.ParserService;
 import de.exxcellent.challenge.Services.ProcesorService;
 import de.exxcellent.challenge.Services.RepositoryService;
+import de.exxcellent.challenge.exceptions.FileNotSupportedException;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
@@ -20,16 +21,17 @@ public final class App {
      * This is the main entry method of your program.
      * @param args The CLI arguments passed
      */
-    public static void main(String... args) {
+    public static void main(String... args) throws FileNotSupportedException {
 
         logger.info("Entering application.");
 
-        final String weatherData = "src/main/resources/de/exxcellent/challenge/weather.csv";
+        final String weatherData = "src/main/resources/de/exxcellent/challenge/weather.csv2";
         final String footballData = "src/main/resources/de/exxcellent/challenge/football.csv";
 
         RepositoryService repositoryService = new RepositoryService();
         ParserService parserService = new ParserService();
         ProcesorService procesorService = new ProcesorService();
+
 
         FileWrapper unparsedWeatherData = repositoryService.get(weatherData);
         FileData parsedWeatherData = parserService.parse(unparsedWeatherData);
