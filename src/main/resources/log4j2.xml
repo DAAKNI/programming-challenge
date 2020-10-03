@@ -9,7 +9,7 @@
         </File>
     </Appenders>
     <Loggers>
-        <Logger name="de.exxcellent.challenge.Services.RepositoryService" level="debug">
+        <Logger name="de.exxcellent.challenge.Services.RepsitoryService.RepositoryService" level="debug">
             <AppenderRef ref="FileAppender"/>
         </Logger>
         <Root level="debug">

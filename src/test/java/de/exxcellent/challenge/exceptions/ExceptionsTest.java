@@ -1,10 +1,9 @@
 package de.exxcellent.challenge.exceptions;
 
 import de.exxcellent.challenge.Config.FileType;
-import de.exxcellent.challenge.Models.FileData;
 import de.exxcellent.challenge.Models.FileWrapper;
 import de.exxcellent.challenge.Services.ParserService;
-import de.exxcellent.challenge.Services.RepositoryService;
+import de.exxcellent.challenge.Services.RepsitoryService.RepositoryService;
 import org.junit.jupiter.api.Test;
 
 
