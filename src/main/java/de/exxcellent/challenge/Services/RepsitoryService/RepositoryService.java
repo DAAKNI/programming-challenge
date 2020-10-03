@@ -70,7 +70,7 @@ public class RepositoryService {
      * @return
      */
     public String getFileExtension(String resource) {
-        return resource.substring(resource.indexOf(".")+1);
+        return resource.substring(resource.lastIndexOf(".")+1);
     }
 
 
