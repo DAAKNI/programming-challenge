@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ProcessorServiceTest {
     @Test
-    public void GetSmallestTemperatureSpread() {
+    public void testGetSmallestTemperatureSpread() {
         RepositoryService repositoryService = new RepositoryService();
 
         ParserService parserService = new ParserService();
@@ -27,7 +27,7 @@ public class ProcessorServiceTest {
     }
 
     @Test
-    public void GetSmallestGoalSpread() {
+    public void testGetSmallestGoalSpread() {
 
         RepositoryService repositoryService = new RepositoryService();
         ParserService parserService = new ParserService();
