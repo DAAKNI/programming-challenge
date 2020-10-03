@@ -2,7 +2,7 @@ package de.exxcellent.challenge;
 
 import de.exxcellent.challenge.Models.FileData;
 import de.exxcellent.challenge.Models.FileWrapper;
-import de.exxcellent.challenge.Services.ParserService;
+import de.exxcellent.challenge.Services.ParserService.ParserService;
 import de.exxcellent.challenge.Services.ProcesorService;
 import de.exxcellent.challenge.Services.RepsitoryService.RepositoryService;
 import de.exxcellent.challenge.exceptions.FileNotSupportedException;

@@ -1,4 +1,4 @@
-package de.exxcellent.challenge.Services;
+package de.exxcellent.challenge.Services.ParserService;
 
 import de.exxcellent.challenge.Models.FileData;
 import de.exxcellent.challenge.Models.FileWrapper;
