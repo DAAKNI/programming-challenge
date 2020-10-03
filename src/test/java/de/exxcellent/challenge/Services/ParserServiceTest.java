@@ -5,6 +5,7 @@ import de.exxcellent.challenge.Models.FileWrapper;
 import de.exxcellent.challenge.Services.ParserService.ParserService;
 import de.exxcellent.challenge.Services.RepsitoryService.RepositoryService;
 import de.exxcellent.challenge.exceptions.InvalidCSVException;
+import de.exxcellent.challenge.exceptions.InvalidFileContentException;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -31,7 +32,7 @@ public class ParserServiceTest {
 
 
     @Test
-    public void testParseCSVFile() throws InvalidCSVException {
+    public void testParseCSVFile() throws InvalidFileContentException {
 
 
         RepositoryService repositoryService = new RepositoryService();

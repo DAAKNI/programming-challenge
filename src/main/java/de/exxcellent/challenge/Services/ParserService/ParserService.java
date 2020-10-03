@@ -3,6 +3,7 @@ package de.exxcellent.challenge.Services.ParserService;
 import de.exxcellent.challenge.Models.FileData;
 import de.exxcellent.challenge.Models.FileWrapper;
 import de.exxcellent.challenge.exceptions.InvalidCSVException;
+import de.exxcellent.challenge.exceptions.InvalidFileContentException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -22,25 +23,18 @@ public class ParserService {
      * @return
      * @throws InvalidCSVException
      */
-    public FileData parse(FileWrapper rawData) throws InvalidCSVException {
+    public FileData parse(FileWrapper rawData) throws InvalidFileContentException {
 
         List<String> contentRaw = rawData.getFileData();
+        List<List<String>> contentParsed;
 
         if(contentRaw.size() == 0 ) {
-            throw new InvalidCSVException("CSV seems to be empty");
+            throw new InvalidFileContentException("File seems to be empty");
         }
 
-        List<List<String>> contentParsed = new ArrayList<>();
 
-        // Split strings into arraylists using the delimter ","
-        contentParsed = contentRaw.stream().map((line) -> Arrays.asList(line.split(","))).collect(Collectors.toList());
-
-        // Check if all rows have the same length
-        for (List<String> row : contentParsed ) {
-            if(row.size() != contentParsed.get(0).size()) {
-                throw new InvalidCSVException("Structure of CSV Invalid");
-            }
-        }
+        IParser parser = new CSVParser();
+        contentParsed = parser.parse(contentRaw);
 
         FileData fileData = new FileData();
         fileData.setContent(contentParsed);

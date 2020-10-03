@@ -7,6 +7,7 @@ import de.exxcellent.challenge.Services.ProcesorService;
 import de.exxcellent.challenge.Services.RepsitoryService.RepositoryService;
 import de.exxcellent.challenge.exceptions.FileNotSupportedException;
 import de.exxcellent.challenge.exceptions.InvalidCSVException;
+import de.exxcellent.challenge.exceptions.InvalidFileContentException;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
@@ -50,7 +51,7 @@ public final class App {
         // Parse data from file
         try {
             parsedWeatherData = parserService.parse(unparsedWeatherData);
-        } catch (InvalidCSVException e) {
+        } catch (InvalidFileContentException e) {
             e.printStackTrace();
             logger.error("Error parsing file");
         }
@@ -74,7 +75,7 @@ public final class App {
         // Parse data from file
         try {
             parsedFootballData = parserService.parse(unparsedFootballData);
-        } catch (InvalidCSVException e) {
+        } catch (InvalidFileContentException e) {
             e.printStackTrace();
             logger.error("Error parsing file");
         }

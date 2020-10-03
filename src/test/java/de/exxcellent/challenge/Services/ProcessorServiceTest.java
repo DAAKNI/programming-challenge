@@ -5,13 +5,14 @@ import de.exxcellent.challenge.Models.FileWrapper;
 import de.exxcellent.challenge.Services.ParserService.ParserService;
 import de.exxcellent.challenge.Services.RepsitoryService.RepositoryService;
 import de.exxcellent.challenge.exceptions.InvalidCSVException;
+import de.exxcellent.challenge.exceptions.InvalidFileContentException;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ProcessorServiceTest {
     @Test
-    public void testGetSmallestTemperatureSpread() throws InvalidCSVException {
+    public void testGetSmallestTemperatureSpread() throws InvalidFileContentException {
         RepositoryService repositoryService = new RepositoryService();
 
         ParserService parserService = new ParserService();
@@ -29,7 +30,7 @@ public class ProcessorServiceTest {
     }
 
     @Test
-    public void testGetSmallestGoalSpread() throws InvalidCSVException {
+    public void testGetSmallestGoalSpread() throws InvalidFileContentException {
 
         RepositoryService repositoryService = new RepositoryService();
         ParserService parserService = new ParserService();
