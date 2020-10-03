@@ -15,13 +15,12 @@ import java.util.stream.Collectors;
 public class ParserService {
     private static final Logger logger = LogManager.getLogger(ParserService.class);
 
-
-
     /**
-     * Takes a List of CSV-strings separate them into a nested list / 2D Arraylist
+     * Service to parse data from a List of Strings
+     * depending on the type of data
      * @param rawData
      * @return
-     * @throws InvalidCSVException
+     * @throws InvalidFileContentException
      */
     public FileData parse(FileWrapper rawData) throws InvalidFileContentException {
 
@@ -32,8 +31,11 @@ public class ParserService {
             throw new InvalidFileContentException("File seems to be empty");
         }
 
+        // Get parser depending on filetype
+        ParserFactory parserFactory = new ParserFactory();
+        IParser parser = parserFactory.getParser(rawData.getFileType());
 
-        IParser parser = new CSVParser();
+        // Parse file content
         contentParsed = parser.parse(contentRaw);
 
         FileData fileData = new FileData();

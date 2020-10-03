@@ -10,6 +10,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class CSVParser implements IParser {
+
+    /**
+     * Takes a List of CSV-strings separate them into a nested list / 2D Arraylist
+     * @param rawData
+     * @return
+     * @throws InvalidCSVException
+     */
     @Override
     public List<List<String>> parse(List<String> rawData) throws InvalidCSVException {
         List<List<String>> contentParsed = new ArrayList<>();

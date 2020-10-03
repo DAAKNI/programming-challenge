@@ -7,6 +7,9 @@ import de.exxcellent.challenge.exceptions.InvalidFileContentException;
 import java.io.BufferedReader;
 import java.util.List;
 
+/**
+ * Generic interface for a fileparser
+ */
 public interface IParser  {
     public List<List<String>> parse(List<String> rawData) throws InvalidFileContentException;
 }
