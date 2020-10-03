@@ -29,6 +29,7 @@ public class RepositoryService {
         FileWrapper fileWrapper = new FileWrapper();
 
 
+
         // Check if Filetyp is supported
         try {
             fileWrapper.setFileType(FileType.valueOf(fileExtension.toUpperCase()));
@@ -36,8 +37,10 @@ public class RepositoryService {
             throw new FileNotSupportedException("Filetype of " + fileName + " not supported", e);
         }
 
-        IResourceReader fileReader = new FileResourceReader();
-        content = fileReader.read(resource);
+
+        ReaderFactory readerFactory = new ReaderFactory();
+        IResourceReader reader = readerFactory.getReader(resource);
+        content = reader.read(resource);
 
         fileWrapper.setFileData(content);
         fileWrapper.setFileName(fileName);
