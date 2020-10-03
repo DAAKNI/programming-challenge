@@ -12,6 +12,11 @@ import java.util.List;
 public class WebResourceReader implements IResourceReader {
     private static final Logger logger = LogManager.getLogger(WebResourceReader.class);
 
+    /**
+     *
+     * @param resource URL to a file on the web
+     * @return content of the file
+     */
     @Override
     public List<String> read(String resource)  {
 

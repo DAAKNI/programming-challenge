@@ -27,12 +27,13 @@ public final class App {
 
         logger.info("Entering application.");
 
-/*        // Getting resource from web
-        final String weatherData = "https://raw.githubusercontent.com/DAAKNI/programming-challenge/" +
-                "challenge-weatherdata/src/main/resources/de/exxcellent/challenge/weather.csv";*/
 
-        final String weatherData = "src/main/resources/de/exxcellent/challenge/weather.csv";
-        final String footballData = "src/main/resources/de/exxcellent/challenge/football.csv";
+
+        final String weatherData = "./src/main/resources/de/exxcellent/challenge/weather.csv";
+        //Getting resource from web
+//        final String weatherData = "https://raw.githubusercontent.com/DAAKNI/programming-challenge/" +
+//                "challenge-weatherdata/src/main/resources/de/exxcellent/challenge/weather.csv";
+        final String footballData = "./src/main/resources/de/exxcellent/challenge/football.csv";
 
         RepositoryService repositoryService = new RepositoryService();
         ParserService parserService = new ParserService();

@@ -18,8 +18,8 @@ public class ParserService {
     /**
      * Service to parse data from a List of Strings
      * depending on the type of data
-     * @param rawData
-     * @return
+     * @param rawData Takes in unparsed data from a File
+     * @return A nested ArrayList with the String representing cells in a table
      * @throws InvalidFileContentException
      */
     public FileData parse(FileWrapper rawData) throws InvalidFileContentException {

@@ -16,8 +16,8 @@ public class RepositoryService {
 
     /**
      * Gets/Opens the content of a resource
-     * @param resource
-     * @return
+     * @param resource Takes in a Path/URI to a file
+     * @return Content of the file
      * @throws FileNotSupportedException
      */
     public FileWrapper get(String resource) throws FileNotSupportedException {
@@ -51,8 +51,8 @@ public class RepositoryService {
 
     /**
      * Extracts the filename from a resource
-     * @param resource
-     * @return
+     * @param resource Path to a file
+     * @return Name of the file
      */
     public String getFileName(String resource) {
         String fileName;
@@ -66,8 +66,8 @@ public class RepositoryService {
 
     /**
      * Extracts the file extension of a resource
-     * @param resource
-     * @return
+     * @param resource Path to a file
+     * @return Extension of a file
      */
     public String getFileExtension(String resource) {
         return resource.substring(resource.lastIndexOf(".")+1);

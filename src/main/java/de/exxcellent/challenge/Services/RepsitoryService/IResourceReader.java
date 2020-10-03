@@ -7,6 +7,9 @@ import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Generic Interface for a reader of resources
+ */
 public interface IResourceReader  {
     public List<String> read(String resource);
 }

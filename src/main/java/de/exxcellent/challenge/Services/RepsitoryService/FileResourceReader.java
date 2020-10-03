@@ -15,8 +15,8 @@ public class FileResourceReader implements IResourceReader{
 
     /**
      * Method for reading local files
-     * @param resource
-     * @return
+     * @param resource Path to a local file
+     * @return Content of a file
      */
     @Override
     public List<String> read(String resource) {

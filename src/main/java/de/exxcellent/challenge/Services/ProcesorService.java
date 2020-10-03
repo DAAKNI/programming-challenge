@@ -17,10 +17,10 @@ public class ProcesorService {
 
     /**
      * Takes in the parsed data can calcualte the differnce between two columns
-     * @param fileData
-     * @param col1
-     * @param col2
-     * @return
+     * @param fileData Takes in nested ArrayList representing a table
+     * @param col1 Name of the first column that should be computed with
+     * @param col2 Name of the second column that should be computed with
+     * @return The row that contains the minimum spread of two columns
      */
     public String calculateMinSpread(FileData fileData, String col1, String col2) {
         if(fileData.getContent().isEmpty()) {
@@ -44,9 +44,9 @@ public class ProcesorService {
 
     /**
      * Returns a specified column from a table
-     * @param table
-     * @param col
-     * @return
+     * @param table Nested ArrayList representing a table
+     * @param col Name of the column
+     * @return Content of the column with out the name of the column
      */
     public List<Integer> getColumnWithoutHeader(List<List<String>> table, int col) {
         List<Integer> column = new ArrayList<>();
@@ -58,8 +58,8 @@ public class ProcesorService {
 
     /**
      * Returns the first column/rownames
-     * @param table
-     * @return
+     * @param table Nested ArrayList representing a table
+     * @return A list with the column names
      */
     public List<String> getRowNames(List<List<String>> table) {
         List<String> column = new ArrayList<>();
@@ -71,9 +71,9 @@ public class ProcesorService {
 
     /**
      * Elementwise subtraction of to Integer Lists
-     * @param column1
-     * @param column2
-     * @return
+     * @param column1 Name of the first column that should be computed with
+     * @param column2 Name of the second column that should be computed with
+     * @return Minimum spread of two lists
      */
     public List<Integer> subtractColumns(List<Integer> column1, List<Integer> column2) {
         List<Integer> result = new ArrayList<>();

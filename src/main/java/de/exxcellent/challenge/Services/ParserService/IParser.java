@@ -8,7 +8,7 @@ import java.io.BufferedReader;
 import java.util.List;
 
 /**
- * Generic interface for a fileparser
+ * Generic interface for a parser
  */
 public interface IParser  {
     public List<List<String>> parse(List<String> rawData) throws InvalidFileContentException;
