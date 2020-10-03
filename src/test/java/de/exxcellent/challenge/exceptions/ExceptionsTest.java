@@ -45,9 +45,9 @@ public class ExceptionsTest {
         });
 
 
-        String expectedMessage = "Invalid CSV";
+        String expectedMessage = "Structure of CSV Invalid";
         String actualMessage = exception.getMessage();
-        assertEquals("expectedMessage", exception.getMessage());
+        assertEquals(expectedMessage, exception.getMessage());
     }
 
 }

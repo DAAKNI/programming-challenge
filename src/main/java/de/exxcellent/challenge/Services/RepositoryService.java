@@ -16,6 +16,12 @@ public class RepositoryService {
 
     private static final Logger logger = LogManager.getLogger(RepositoryService.class);
 
+    /**
+     * Gets/Opens the content of a resource
+     * @param resource
+     * @return
+     * @throws FileNotSupportedException
+     */
     public FileWrapper get(String resource) throws FileNotSupportedException {
 
 
@@ -35,7 +41,7 @@ public class RepositoryService {
             fileExtension = fileName.substring(fileName.indexOf(".")+1);
         }
 
-//        if(FileType.valueOf(fileExtension.toUpperCase()))
+
         try {
             fileWrapper.setFileType(FileType.valueOf(fileExtension.toUpperCase()));
         } catch (IllegalArgumentException e) {

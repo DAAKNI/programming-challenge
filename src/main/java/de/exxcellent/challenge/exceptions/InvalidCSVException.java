@@ -6,8 +6,8 @@ public class InvalidCSVException extends Exception {
         super(errorMessage);
     }
 
-    @Override
-    public String toString() {
-        return "Provided CSV ist not valid";
-    }
+//    @Override
+//    public String toString() {
+//        return "Provided CSV ist not valid";
+//    }
 }

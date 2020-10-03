@@ -22,6 +22,10 @@ public class ProcesorService {
      * @return
      */
     public String calculateMinSpread(FileData fileData, String col1, String col2) {
+        if(fileData.getContent().isEmpty()) {
+            logger.error("Not able to calc spread. Data is empty");
+            return "";
+        }
 
         List<String> header = fileData.getContent().get(0);
         List<String> rowNames = getRowNames(fileData.getContent());
